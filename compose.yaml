@@ -1,0 +1,14 @@
+services:
+  shareall:
+    build: .
+    ports:
+      - "${PORT:-8000}:8000"
+    env_file: .env
+    environment:
+      PORT: "8000"
+      DATA_DIR: /data
+    volumes:
+      - shareall-data:/data
+    restart: unless-stopped
+volumes:
+  shareall-data:
